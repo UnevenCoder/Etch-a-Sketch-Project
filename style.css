@@ -1,20 +1,37 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
+
 body {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-.box {
-  border-radius: 5px;
-  background-color: aqua;
+.buttons{
+  font-size:1rem;
+  font-weight:600;
+  background:transparent;
+  border : 2px dotted black;
+  height:75px;
+  width:100px;
+  margin-bottom:20px;
+}
+.box{
+  margin:0;
+  padding:0;
 }
 #container {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border:1px solid black;
+}
+#pc{
+  padding:1px 6px;
+}
+div#buttons {
+  display: flex;
+  justify-content: space-around;
 }

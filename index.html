@@ -8,6 +8,18 @@
   </head>
   <body>
     <script src="script.js"></script>
+    <h1>Etch A Sketch [ By Ameen]</h1>
+    <div id="buttons">
+      <button onclick='changeState("Black")' class="buttons">Black</button>
+      <button onclick='changeState("GreyScale")' class="buttons">
+        GreyScale
+      </button>
+      <button onclick='changeState("Rainbow")' class="buttons">Rainbow</button>
+      <button onclick='changeState("Eraser")' class="buttons">Eraser</button>
+      <button id="pc" onclick='changeState("Color")' class="buttons">
+        Pick :<input type="color" value="#212121" name="color picker" id="cp" />
+      </button>
+    </div>
     <div id="container"></div>
   </body>
 </html>
