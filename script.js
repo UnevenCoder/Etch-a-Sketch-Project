@@ -1,9 +1,33 @@
 document.addEventListener("DOMContentLoaded", Loaded);
 function generateCard() {
+    let size = localStorage.getItem('size')
+    
+    x=size=='Large'?6:size=='Medium'?12:36
     const container = document.querySelector('#container')
-    for(let i = 0 ; i< 36 ; i++ )
+    for(let i = 0 ; i<x*x ; i++ )
     {
-        container.innerHTML += '<div id='+i+'  onmouseover="changeColor(this)" style=\'width:100px;height:100px\' class="box"></div>'   
+        console.log(600/(x*x).toFixed(2) ,600/x )
+        container.innerHTML += '<div id='+i+'  onmouseover="changeColor(this)" style=\'width:'+600/x.toFixed(2)+'px;height:'+600/x.toFixed(2)+'px\' class="box"></div>'   
+    }
+}
+function generateCardAfterLoaded() {
+    const container = document.querySelector('#container')
+    container.innerHTML =''
+    let size = localStorage.getItem('size')
+    x=size=='Large'?6:size=='Medium'?12:36
+    for(let i = 0 ; i<x*x ; i++ )
+    {
+        console.log(600/(x*x).toFixed(2) ,600/x )
+        container.innerHTML += '<div id='+i+'  onmouseover="changeColor(this)" style=\'width:'+600/x.toFixed(2)+'px;height:'+600/x.toFixed(2)+'px\' class="box"></div>'   
+    }
+}
+function custom() {
+    x=parseInt(prompt('number of blocks in a row'))
+    const container = document.querySelector('#container')
+    for(let i = 0 ; i<x*x ; i++ )
+    {
+        console.log(600/(x*x).toFixed(2) ,600/x )
+        container.innerHTML += '<div id='+i+'  onmouseover="changeColor(this)" style=\'width:'+600/x.toFixed(2)+'px;height:'+600/x.toFixed(2)+'px\' class="box"></div>'   
     }
 }
 
@@ -68,10 +92,6 @@ function Color(x) {
     document.getElementById(id).style.backgroundColor = color;
 }
 
-function Loaded() {
-    localStorage.setItem('state', 'Black');
-    generateCard()
-}
 function changeColor(x){
     let state = localStorage.getItem('state')
     if (state == 'GreyScale') {
@@ -93,4 +113,15 @@ function changeColor(x){
 
 function changeState(state){
     localStorage.setItem('state', state);
+}
+
+function changeSize(size) {
+    localStorage.setItem('size', size)
+    generateCardAfterLoaded()
+}
+
+function Loaded() {
+    localStorage.setItem('state', 'Black');
+    localStorage.setItem('size', 'Medium');    
+    generateCard()
 }
